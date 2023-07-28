@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'japanese_3017regular';
+    src: url('../font/japanese_3017-webfont.woff2') format('woff2'),
+        url('../font/japanese_3017-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+*, ::before, ::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #222222;
+    font-family: var(--titre-font-family);
+}
+
+:root {
+    --btn-color-bg: #F3C627;
+    --propos-bg-color: #585858;
+    --titre-font-family: 'japanese_3017regular';
+}
+
+.btn {
+  background-color: var(--btn-color-bg);
+}
+
+.navjap {
+  font-family: var(--titre-font-family);
+}
