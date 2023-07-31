@@ -15,19 +15,65 @@
 
 body {
     background-color: #222222;
-    font-family: var(--titre-font-family);
 }
 
 :root {
     --btn-color-bg: #F3C627;
     --propos-bg-color: #585858;
     --titre-font-family: 'japanese_3017regular';
+    --texte-font-family: 'Arial, Helvetica, sans-serif';
 }
 
 .btn {
   background-color: var(--btn-color-bg);
+  border-radius: 30px;
+  color: black !important;
+  font-weight: bold !important;
 }
 
 .navjap {
   font-family: var(--titre-font-family);
+}
+
+#navbarNav {
+    font-family: var(--titre-font-family);
+}
+
+h2 {
+    font-family: var(--titre-font-family);
+    color: white !important;
+}
+
+h3 {
+    font-family: var(--titre-font-family);
+    color: #F3C627;
+
+}
+
+.text-container {
+    border: 1px solid #585858;
+    background-color: #585858;
+    border-radius: 30px;
+}
+
+.text2-container {
+    border: 1px solid #585858;
+    background-color: #585858;
+    border-radius: 30px;
+}
+
+#menu {
+    border: 1px solid #585858;
+    background-color: #585858;
+    border-radius: 30px;
+}
+
+.form {
+    background-color: #585858;
+    border-radius: 30px;
+}
+
+.col button {
+    float: right;
+    color: black;
 }
