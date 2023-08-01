@@ -1,8 +1,14 @@
 <?php 
 
+
+$titre = 'Gestion des réservations';
+
 include './common/menu.php'; 
 
 ?>
+
+<title><?php echo $title; ?></title>
+
     <!-- main content -->
     <main class="p-4 mh-100">
         <div class="row g-3">
