@@ -20,10 +20,10 @@ include './common/menu.php';
                                         <!-- form ajout d'une réservations -->
                                         <form action="" enctype="multipart/form-data" method="POST" id="addForm" role="form">
                                             <div class="form-group row mb-3">
-                                                <div class="col-lg-6 col-6 pb-2">
+                                                <div class="col-lg-6 col-12 pb-2">
                                                     <input class="form-control mb-4" name="nom" type="text" placeholder="Facebook">
                                                 </div>  
-                                                <div class="col-lg-6 col-6 pb-2">
+                                                <div class="col-lg-6 col-12 pb-2">
                                                     <input class="form-control mb-4" name="prenom" type="text" placeholder="Instagram">
                                                 </div>   
                                                 <div class="col-lg-6 text-center">                                             
