@@ -25,41 +25,44 @@
 
             <!-- sidebar -->
             <div class="col-md-3 col-lg-2 px-0 position-fixed h-100 sidebar" id="sidebar">
-                <h1 class="text-primary d-flex my-4 justify-content-center"><img src="./../../public/img/sushipuden.svg" alt="Logo" height="200"></h1>
+                <h1 class="text-primary d-flex my-4 justify-content-center">
+                    <img src="./../../public/img/sushipuden.svg" alt="Logo" height="200">
+                </h1>
+                
                 <div class="list-group rounded-0" id="list-tab" role="tablist">
-                    <a href="index.php" data-toggle="list" class="list-group-item list-group-item-action active border-0 d-flex">
+                    <a href="index.php" class="list-group-item list-group-item-action active border-0 d-flex">
                         <span><i class="iconoir-graph-up icme"></i></span>
                         <span class="ml-2">Vue d'ensemble</span>
                     </a>
-                    <a href="resa.php" data-toggle="list" class="list-group-item list-group-item-action border-0 d-flex">
+                    <a href="resa.php" class="list-group-item list-group-item-action  border-0 d-flex">
                         <span><i class="iconoir-calendar icme"></i></span>
                         <span class="ml-2">Réservations</span>
                     </a>
 
-                    <a href="menu.php" data-toggle="list" class="list-group-item list-group-item-action border-0 d-flex">
+                    <a href="menu.php" class="list-group-item list-group-item-action border-0 d-flex">
                         <span><i class="iconoir-clutery icme"></i></span>
                         <span class="ml-2">Menu</span>                        
                     </a>
 
-                    <a href="newsletter.php" data-toggle="list" class="list-group-item list-group-item-action border-0 d-flex">
+                    <a href="newsletter.php" class="list-group-item list-group-item-action border-0 d-flex">
                         <span><i class="iconoir-percentage icme"></i></span>
                         <span class="ml-2">Newsletter</span>
                     </a>
 
-                    <a href="contact.php" data-toggle="list" class="list-group-item list-group-item-action border-0 d-flex">
+                    <a href="contact.php" class="list-group-item list-group-item-action border-0 d-flex">
                         <span><i class="iconoir-send-mail icme"></i></span>
                         <span class="ml-2">Contact
-                            <!-- <span class="badge badge-danger badge-pill">2</span> -->
                         </span>
                     </a>
 
-                    <a href="rs.php" data-toggle="list" class="list-group-item list-group-item-action border-0 d-flex">
+                    <a href="rs.php" class="list-group-item list-group-item-action border-0 d-flex">
                         <span><i class="iconoir-star icme"></i></span>
                         <span class="ml-2">Réseaux sociaux</span>
                     </a>
-
                 </div>
+                
             </div>
+
             <div class="col-md-9 col-lg-10 ml-md-auto px-0 ms-md-auto">
 
                 <!-- top nav -->

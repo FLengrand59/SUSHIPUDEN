@@ -136,17 +136,16 @@ include './common/menu.php';
                                                     <input class="form-control" type="date" name=date>
                                                 </div>    
                                                 <div class="col-lg-4 col-4 pb-2">
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                        <option>Couverts</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                    </select>
+                                                    <input class="form-control mb-4" name="couverts" type="text" placeholder="Nombre couverts">  
                                                 </div> 
                                                 <div class="col-lg-4 col-4 pb-2">
-                                                    <input class="form-control mb-4" name="service" type="text" placeholder="Services">
+                                                    <select class="form-select mySelectArrow">
+                                                        <option value="" selected>Services</option>
+                                                        <option value="">Midi</option>
+                                                        <option value="">Soir</option>
+                                                    </select>
                                                 </div>
+                                                
                                                 <br>
                                                 <br>    
                                                 <div class="col-lg-6 text-center">                                             
