@@ -346,3 +346,7 @@ select.mySelectArrow{
     font-size: 14px;
     color: #b4b4b4;
 }
+
+#brt{
+    border-radius: 20px !important;
+}
