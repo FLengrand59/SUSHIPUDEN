@@ -19,7 +19,7 @@
   <div class="row justify-content-center">
     <div class="col-md-4 mt-5">
     <img src="./../../public/img/sushipuden.svg" alt="Logo" height="200">
-        <div class="form-group">
+        <div class="form-group mb-3">
               <input type="text" class="form-control text-center" placeholder="Identifiant">
             </div>
             <div class="form-group">
@@ -30,7 +30,7 @@
                 <a href="./password.php">Mot de passe oublié ?</a>
               </div>
               <div class="form-group">
-                <a href="#">Créer un compte</a>
+                <a href="./index.php">Se connecter</a>
               </div>
             </div>
           </form>
