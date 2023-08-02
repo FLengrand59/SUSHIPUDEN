@@ -1,7 +1,7 @@
 <footer class="container-fluid text-white">
 <div class="row">
     <div class="col-md-4 text-left">
-    <a href="lien_vers_page_gauche.html">
+    <a href="./View/backoffice/login.php">
           <img src="./public/img/avatarback.png" alt="login back-office" style="height: 50px;">
         </a>
     </div>

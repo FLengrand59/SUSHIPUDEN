@@ -1,0 +1,43 @@
+*, ::before, ::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #222222;
+}
+
+:root {
+    --form-bg-color: #585858;
+    --input-bg-color: #222222;
+    --text-color: #fff;
+    --a-color-bg: #F3C627;
+    --a-text-decoration: none;
+    --a-font-weight: bold;
+    --a-padding: 5px;
+}
+
+form {
+    background-color: var(--form-bg-color);
+}
+
+input[type="text"] {
+    background-color: var(--input-bg-color);
+}
+
+input[type="password"] {
+    background-color: var(--input-bg-color);
+}
+
+::placeholder {
+    color: var(--text-color);
+}
+
+a {
+    background-color: var(--a-color-bg);
+    color: var(--text-color);
+    text-decoration: var(--a-text-decoration);
+    font-weight: var(--a-font-weight);
+    padding: var(--a-padding);
+}
