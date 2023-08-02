@@ -6,6 +6,9 @@
 
                 <div class="col-6 mb-5">
                     <img src="./public/img/header_img.png" alt="Image gauche" class="img-fluid">
+                                <div class="btndev col-11 text-center">
+                    <button class="btn btn-primary">Découvrir</button>
+                </div>
                 </div>
 
                 <div class="banniere col-6">
@@ -13,9 +16,6 @@
                 </div>
             </div>
 
-            <div class="btndev col-11 text-center">
-                    <button class="btn btn-primary">Découvrir</button>
-                </div>
         </div>
     </header>
 
@@ -27,17 +27,17 @@
             <img src="./public/img/AuthenticTaste.png" alt="Image" class="img-fluid">
         </div>
 
-        <div class="col-12 col-md-6 text-white">
+        <div class="col-12 col-md-6 text-white text-center">
             <div class="text-container">
-            <h2 class="text-center">Des produits frais, de qualité.</h2>
+            <h2>Des produits frais, de qualité.</h2>
             <p>
                 Nos mets sont préparés et cuisinés à la commande sur
                 place, pour vous assurer une expérience gustative unique.
             </p>
         </div>
 
-        <div class="text2-container mt-5">
-            <h2 class="text-center">Entre tradition et innovation</h2>
+        <div class="text2-container mt-5 text-center">
+            <h2>Entre tradition et innovation</h2>
             <p>
                 Notre chef s’inspire de vos envies pour confectionner une
                 carte qui répond à vos attentes mais peut aussi vous
@@ -58,18 +58,18 @@
             <div id="menu">
             <h2 class="text-center">Menu</h2>
             <h3>Entrées</h3>
-            <p class="text-uppercase">gyoza saveur poulet...................................................................................7.90€</p>
+            <p class="text-uppercase">gyoza saveur poulet.......................................................................7.90€</p>
             <p>lot de 3 pièces ou 6 pièces au choix</p>
 
-            <p class="text-uppercase">crevette tempura..........................................................................................7.90€</p>
+            <p class="text-uppercase">crevette tempura....................................................................................7.90€</p>
             <p>Crevettes tempura, servi avec un bol de riz vinaigré</p>
             <hr>
 
             <h3>Plats</h3>
-            <p class="text-uppercase">assortiments maki....................................................................................14.90€</p>
+            <p class="text-uppercase">assortiments maki............................................................................14.90€</p>
             <p>Saumon, thon, concombre, sauce soja, 10 pièces</p>
 
-            <p class="text-uppercase">assortiments sushi.....................................................................................7.90€</p>
+            <p class="text-uppercase">assortiments sushi...........................................................................7.90€</p>
             <p>Saumon, thon, daurade, crevette, 10 pièces</p>
             <hr>
 
@@ -78,7 +78,7 @@
             <p>Pâte de riz à l'extérieur fourrée d'une crème glacée saveur fraise,
                 vanille, mangue, 2 pièces.</p>
 
-            <p class="text-uppercase">doryaki...............................................................................................................6.80€</p>
+            <p class="text-uppercase">doryaki................................................................................................6.80€</p>
             <p>Gâteau d’haricot rouge, 4 pièces</p>
             <hr>
 
@@ -97,18 +97,18 @@
         </main>
     </section>
 
-    <!-- Reservation -->
+    <!-- SectionReservation -->
     <div class="container">
         <div class="row">
 
-            <div class="col-md-4 mt-5">
+            <div class="col-md-4 mt-5" id="reservation">
                 <img src="./public/img/Groupe 107.png" class="img-fluid w-auto h-75" alt="femme reservation">
             </div>
 
-            <div class="col-md-6 mt-5 text-white">
+            <div class="col-md-7 mt-5 text-white">
                 <h2 class="display-3">Reserve une table</h2>
                 <div class="form p-3">
-                <p class="mt-5">Indiquez le nombre de convives, la date et l’heure souhaitée afin de
+                <p class="mt-5">Indiquez le nombre de convives, la date et l'heure souhaitée afin de
                     garantir votre table dans notre restaurant.</p>
                     <form>
                         <div class="row">
@@ -172,11 +172,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div id="map" style="height: 300px;"></div>
+                <img src="./public/img/map.png" alt="map de cambrai">
             </div>
 
             <div class="col-md-6">
-                <img src="./public/img/trouver.png" class="img-fluid alt="nous trouver et temple">
+                <img src="./public/img/trouver.png" class="img-fluid alt="nous trouver>
                 <p class="text-white">Place du centre-ville <br>
                     59400 Cambrai <br>
                     Tel : 032712345678</p>
@@ -187,7 +187,7 @@
                     Dimanche : 18:00-22:30</p>
 
                 <div class="mt-3">
-                    <a href="lien_vers_reseau_social_1" target="_blank"><img src="./public/img/reseaux.png" alt="Logo facebook et insta" width="80"></a>
+                    <a href="https://www.facebook.com/" target="_blank"><img src="./public/img/reseaux.png" alt="Logo facebook et insta" width="80"></a>
                 </div>
             </div>
         </div>
@@ -200,7 +200,7 @@
         <div class="container">
             <div class="row">
     
-                <div class="col-md-6 mt-5 text-white">
+                <div class="col-md-6 mt-5 text-white" id="contact">
                     <h2 class="display-3">Contact</h2>
                     <div class="form p-3">
                     <p class="mt-5">Indiquez le nombre de convives, la date et l’heure souhaitée afin de
@@ -257,7 +257,6 @@
         </section>
                             </div>
 
-                            <footer>
                                 <div class="container">
                                     <div class="row">
 
@@ -286,7 +285,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </footer>
 
 
   <?php include('./view/common/footer.php'); ?>

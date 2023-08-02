@@ -15,8 +15,8 @@
     <header>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-md navbar-dark">
-            <a class="navbar-brand" href="#">
-                <img src="./public/img/logo.svg" alt="Logo" height="180">
+            <a class="navbar-brand" href="#" id="nav">
+                <img src="./public/img/logo.svg" alt="Logo" height="150">
             </a>
 
             <!-- Bouton burger (mobile-first) à droite -->
@@ -28,13 +28,13 @@
             <div class="navjap collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">A propos</a>
+                        <a class="nav-link" href="#presentation">A propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
+                        <a class="nav-link" href="#menu">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
