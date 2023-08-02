@@ -1,3 +1,5 @@
+// Sidebar
+
 document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('open-sidebar').addEventListener('click', () => {
