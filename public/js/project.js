@@ -19,3 +19,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+
+// Ajax update message lu //
+function updateContactStatut(link) {
+    var id_contact = link.getAttribute("data-id_contact");
+
+    // Envoyer une requête AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "./../../controller/editStatutContactController.php?id_contact=" + id_contact, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log("Statut mis à jour !");
+
+            window.location.reload(); 
+        }
+    };
+    xhr.send();
+}
+
+
+// add hh

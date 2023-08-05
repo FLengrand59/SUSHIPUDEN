@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-    <html lang="fr" >
+<?php 
 
-<?php
-    $titre = 'Restaurant Sushipuden | Gestion';
+include_once "./../../controller/countController.php";
 ?>
 
+<!DOCTYPE html>
+    <html lang="fr" >
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <!-- Meta -->
-            <title><?php echo $titre; ?></title>
+            <title>Restaurant Sushipuden | Gestion</title>
             <!-- Bootstrap -->
             <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css'>
             <!-- icons Library -->
@@ -18,6 +18,7 @@
             <link rel="stylesheet" href="./../../public/css/backoffice.css">
             <!-- Script Js -->
             <script src="./../../public/js/project.js"></script>
+            
         </head>
         <body>
 
@@ -51,7 +52,15 @@
 
                     <a href="contact.php" class="list-group-item list-group-item-action border-0 d-flex">
                         <span><i class="iconoir-send-mail icme"></i></span>
-                        <span class="ml-2">Contact
+                            <span class="ml-2">Contact
+                                <?php 
+                                if($recupUnreadCountContact){
+                                    echo '<td><span id="badge" class="badge badge-pill badge-danger ml-2"> '.$recupUnreadCountContact.' </span> </td>';
+                                }else{
+                                    echo '';          
+                                }  
+                                ?>
+                            </span>
                         </span>
                     </a>
 

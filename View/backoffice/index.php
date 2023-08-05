@@ -1,6 +1,8 @@
 <?php 
 
 include './common/menu.php'; 
+include "./../../controller/countController.php";
+include "./../../controller/displayResaController.php";
 
 ?>
     <!-- main content -->
@@ -12,7 +14,7 @@ include './common/menu.php';
                         <span><i class="iconoir-calendar icme"></i></span>
                         <h6 class="ml-2 ic">Réservations</h6>
                     </div>
-                    <p class="pl-3 pb-4 pc">Vous avez 5 réservations aujourd'hui.</p>
+                    <p class="pl-3 pb-4 pc">Vous avez <?php echo $recupResa ?> réservations aujourd'hui.</p>
                 </div>
             </div>
 
@@ -22,7 +24,7 @@ include './common/menu.php';
                         <span><i class="iconoir-send-mail icme"></i></span>
                         <h6 class="ml-2 ic">Contact</h6>
                     </div>
-                    <p class="pl-3 pb-4 pc">Vous avez reçu 12 messages.</p>
+                    <p class="pl-3 pb-4 pc">Vous avez <?php echo $recupCountContact ?> message(s) dont <?php echo $recupUnreadCountContact ?> en attente de lecture.</p>
                 </div>
             </div>
 
@@ -50,28 +52,26 @@ include './common/menu.php';
                                     document.addEventListener('DOMContentLoaded', function() {
                                         var calendarEl = document.getElementById('calendar');
                                         var calendar = new FullCalendar.Calendar(calendarEl, {
-                                        // Requete Ajax qui recupere toutes les reservations
-                                        events : 
-                                            {
+                                            // Requete Ajax qui recupere toutes les reservations
+                                            events: {
                                                 // Appelle mon controlleur
-                                                url:  '../controller/', 
+                                                url: './../../controller/displayResaController.php',
                                                 contentType: "application/json; charset=utf-8",
                                                 // renvoi les infos au format JSON
                                                 dataType: 'json',
                                                 type: 'POST',
                                                 data: {
-                                                    libelle:'libelle',
-                                                    date:'date',
+                                                    title: 'nom',
+                                                    date: 'date',
                                                 },
-                                                // si requete envoyé affiché ce message
                                                 success: function(data) {
-                                                    console.log('XHR success callback');
+                                                    console.log('XHR success callback', data);
                                                 },
-                                                // sinon
                                                 failure: function(data) {
                                                     console.error('XHR failure callback');
-                                                }                                        
-                                            },     
+                                                }
+                                            },
+
                                             eventClick: function(info) {
                                                 var eventObj = info.event;
                                                 console.log(eventObj.extendedProps.description);
@@ -80,29 +80,36 @@ include './common/menu.php';
                                             eventDidMount: function(info) {
                                                 $(info.el).tooltip({
                                                     title: info.event.title,
+                                                    start: info.event.start,
                                                 });
                                             },
-                                        // Options FullCalendar
-                                        initialView: 'dayGridMonth',
-                                        locale: 'fr',
-                                        themeSystem: 'bootstrap',
-                                        buttonText: { 
-                                            today:    'Aujourd\'hui',
-                                            month:    'Mois',
-                                            week:     'Semaine',
-                                            day:      'Jour',
-                                            list:     'Liste' 
-                                                    },
-                                        // Affiche les numeros de semaine
-                                        weekNumbers : true,
-                                        weekNumberFormat: { week: 'numeric' },                         
+
+                                            // Options FullCalendar
+                                            initialView: 'dayGridWeek',
+                                            eventColor: '#222',
+                                            locale: 'fr',
+                                            themeSystem: 'Lux',
+                                            buttonText: {
+                                                today: 'Aujourd\'hui',
+                                                month: 'Mois',
+                                                week: 'Semaine',
+                                                day: 'Jour',
+                                                list: 'Liste'
+                                            },
+                                            // Affiche les numeros de semaine
+                                            weekNumbers: true,
+                                            weekNumberFormat: { week: 'numeric' },
                                         });
+
+                                        // Mettre à jour les événements avec les données du contrôleur
+                                        calendar.setOption('events', <?php echo json_encode($events); ?>);
+
                                         calendar.render();
                                     });
+
                                 </script>
 
                                 <div id='calendar'></div>
-
                         </div>
                     </div>
                 </div>
@@ -151,7 +158,7 @@ include './common/menu.php';
                                                 <div class="col-lg-6 text-center">                                             
                                                 </div> 
                                                 <div class="col-lg-6 text-right">                                            
-                                                    <input type="submit" class="btn btndash" value="Ajouter la reservation">   
+                                                    <input type="submit" class="btn btndash" value="Ajouter">   
                                                 </div>                                                             
                                             </div>
                                         </form>     
@@ -165,6 +172,6 @@ include './common/menu.php';
             </div>
         </div>
     </main>
-</div>
+
 
 <?php include './common/footer.php'; ?>
