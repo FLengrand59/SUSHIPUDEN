@@ -39,6 +39,6 @@
             </div>
 
             <div class="d-none d-md-block">
-                <button class="btn btn-primary">Réservez</button>
-            </div>
+    <a href="#reservation" class="btn btn-primary">Réservez</a>
+    </div>
         </nav>

@@ -4,12 +4,12 @@
           <div class="container-fluid mt-4">
             <div class="row">
 
-                <div class="col-6 mb-5">
-                    <img src="./public/img/header_img.png" alt="Image gauche" class="img-fluid">
-                                <div class="btndev col-11 text-center">
-                    <button class="btn btn-primary">Découvrir</button>
-                </div>
-                </div>
+            <div class="col-6 mb-5">
+                <img src="./public/img/header_img.png" alt="Image gauche" class="img-fluid">
+            <div class="btndev col-11 text-center">
+            <a href="#menu" class="btn btn-primary">Découvrir</a>
+        </div>
+        </div>
 
                 <div class="banniere col-6">
                     <img src="./public/img/Bannheader.png" alt="Image droite" class="img-fluid">

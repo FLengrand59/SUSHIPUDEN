@@ -85,7 +85,7 @@ include_once "./../../controller/countController.php";
                             <i class="iconoir-log-out icme pb-1"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right border-0 shadow-sm" aria-labelledby="logout-dropdown">
-                            <a class="dropdown-item" href="#">Se déconnecter</a>
+                            <a class="dropdown-item" href="./login.php">Se déconnecter</a>
                         </div>
                     </div>
                 </nav>

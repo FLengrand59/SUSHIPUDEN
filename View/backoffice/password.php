@@ -11,7 +11,7 @@
 </head>
 <body>
     <section>
-<div class="container mt-5">
+<div class="container">
 <div class="container mt-5 position-relative">
 <img src="./../../public/img/groupe28.png" class="position-absolute img-fluid" style="top: 0; left: 0; max-width: 150px;" alt="sushi">
   <img src="./../../public/img/temple.png" class="position-absolute img-fluid" style="bottom: 0; right: 0; max-width: 150px;" alt="temple">
