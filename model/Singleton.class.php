@@ -8,7 +8,7 @@ class Singleton {
     private $_host = "localhost";
     private $_username = "root";
     private $_password = "";
-    private $_dbname = "sushipudenbdd";
+    private $_dbname = "sushipuden";
     /*
     Get an instance of the Database
     si une instance existe la methode va la retourner
