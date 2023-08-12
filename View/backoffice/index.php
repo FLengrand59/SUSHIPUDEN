@@ -1,8 +1,6 @@
 <?php 
 
 include './common/menu.php'; 
-include "./../../controller/countController.php";
-include "./../../controller/readReaseBackContro.php";
 
 ?>
     <!-- main content -->
@@ -14,7 +12,7 @@ include "./../../controller/readReaseBackContro.php";
                         <span><i class="iconoir-calendar icme"></i></span>
                         <h6 class="ml-2 ic">Réservations</h6>
                     </div>
-                    <p class="pl-3 pb-4 pc">Vous avez <?php echo $recupResa ?> réservations aujourd'hui.</p>
+                    <p class="pl-3 pb-4 pc">Vous avez 2 réservations aujourd'hui.</p>
                 </div>
             </div>
 
@@ -24,7 +22,7 @@ include "./../../controller/readReaseBackContro.php";
                         <span><i class="iconoir-send-mail icme"></i></span>
                         <h6 class="ml-2 ic">Contact</h6>
                     </div>
-                    <p class="pl-3 pb-4 pc">Vous avez <?php echo $recupCountContact ?> message(s) dont <?php echo $recupUnreadCountContact ?> en attente de lecture.</p>
+                    <p class="pl-3 pb-4 pc">Vous avez 56 message(s) dont 4 en attente de lecture.</p>
                 </div>
             </div>
 
@@ -55,7 +53,7 @@ include "./../../controller/readReaseBackContro.php";
                                             // Requete Ajax qui recupere toutes les reservations
                                             events: {
                                                 // Appelle mon controlleur
-                                                url: './../../controller/displayResaController.php',
+                                                url: './../../controller/...',
                                                 contentType: "application/json; charset=utf-8",
                                                 // renvoi les infos au format JSON
                                                 dataType: 'json',

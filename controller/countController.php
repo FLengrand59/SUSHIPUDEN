@@ -1,12 +1,12 @@
 <?php
 
-require_once "../../model/Management.class.php";
-require_once "../../model/Contact.class.php";
+// require_once "../../model/Management.class.php";
+// require_once "../../model/Contact.class.php";
 
-$recupCountContact = Management::countContact();
+// $recupCountContact = Management::countContact();
 
-$recupUnreadCountContact = Management::countUnreadContact();
+// $recupUnreadCountContact = Management::countUnreadContact();
 
-$recupResa = Management::countResa();
+// $recupResa = Management::countResa();
 
 ?>

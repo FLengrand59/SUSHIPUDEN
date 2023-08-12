@@ -1,7 +1,7 @@
 <?php 
 
 include './common/menu.php'; 
-include '../../controller/ReadResaBackController.php';
+include './../../controller/readResaBackController.php';
 
 ?>
     <!-- main content -->

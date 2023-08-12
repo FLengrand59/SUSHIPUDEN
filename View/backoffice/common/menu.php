@@ -54,11 +54,11 @@ include_once "./../../controller/countController.php";
                         <span><i class="iconoir-send-mail icme"></i></span>
                             <span class="ml-2">Contact
                                 <?php 
-                                if($recupUnreadCountContact){
-                                    echo '<td><span id="badge" class="badge badge-pill badge-danger ml-2"> '.$recupUnreadCountContact.' </span> </td>';
-                                }else{
-                                    echo '';          
-                                }  
+                                // if($recupUnreadCountContact){
+                                //     echo '<td><span id="badge" class="badge badge-pill badge-danger ml-2"> '.$recupUnreadCountContact.' </span> </td>';
+                                // }else{
+                                //     echo '';          
+                                // }  
                                 ?>
                             </span>
                         </span>
