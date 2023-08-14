@@ -5,7 +5,8 @@ require_once  "/../../model/Singleton.class.php";
 /**
  * Class Management
  */
-class Management{
+class Management
+{
 
     // READ FONCTION //////
 
@@ -19,7 +20,7 @@ class Management{
     //         $requete = $db->prepare($sql);
     //         $requete->execute();
     //         $result = $requete->fetchAll(PDO::FETCH_ASSOC);
-            
+
     //         return $result;
     //     } catch (PDOException $e) {
     //         echo 'Erreur de requête : ' . $e->getMessage();
@@ -114,26 +115,14 @@ class Management{
 
     // AFFICHAGE D'UNE RESERVATION
 
-        static function readResa() {
-        $db = Singleton::getInstance()-> getConnection();
-        $sql = "SELECT * FROM reservation";
+
+    static function readFormContact()
+    {
+        $db = Singleton::getInstance()->getConnection();
+        $sql = "SELECT * FROM Contact";
         $requete = $db->prepare($sql);
         $requete->execute();
         $result = $requete->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

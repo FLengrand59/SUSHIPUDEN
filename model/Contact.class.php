@@ -1,9 +1,11 @@
 <?php
 
+
 /**
  * Class Contact
  */
-class Contact {
+class Contact
+{
 
     /**
      * @var
@@ -17,7 +19,7 @@ class Contact {
     private $date;
     private $statut;
 
-    
+
 
     /**
      * Contact constructor.
@@ -33,9 +35,9 @@ class Contact {
 
 
      */
-    function __construct($nom,$prenom,$email,$id_categories,$message,$date,$statut)
+    function __construct($nom, $prenom, $email, $id_categories, $message, $date, $statut)
     {
-        
+
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
@@ -43,7 +45,6 @@ class Contact {
         $this->message = $message;
         $this->date = $date;
         $this->statut = $statut;
-
     }
 
 
@@ -56,20 +57,20 @@ class Contact {
 
 
     //  * @param mixed $id_contact
-     
+
     public function setIdContact($id_contact)
     {
         $this->id_contact = $id_contact;
     }
 
     //  * @return mixed
-     
+
     public function getDate()
     {
         return $this->date;
     }
 
-    
+
     //  * @param mixed $date
 
     public function setDate($date)
@@ -78,7 +79,7 @@ class Contact {
     }
 
 
-    
+
     //  * @return mixed
 
     public function getNom()
@@ -133,7 +134,7 @@ class Contact {
         return $this->id_categories;
     }
 
-    
+
     //  * @param mixed $id_categories
 
     public function setId_categories($id_categories)
@@ -172,9 +173,4 @@ class Contact {
     {
         $this->Statut = $statut;
     }
-
-
-
 }
-
-
