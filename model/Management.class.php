@@ -116,13 +116,22 @@ class Management
     // AFFICHAGE D'UNE RESERVATION
 
 
-    static function readFormContact()
+
+    // Ajoute un try catch pour gerer les erreur
+
+    public static function readFormContact()
     {
-        $db = Singleton::getInstance()->getConnection();
-        $sql = "SELECT * FROM Contact";
-        $requete = $db->prepare($sql);
-        $requete->execute();
-        $result = $requete->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+        try {
+            $db = Singleton::getInstance()->getConnection();
+            $sql = "SELECT * FROM Contact";
+            $requete = $db->prepare($sql);
+            $requete->execute();
+            $result = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
+        } catch (PDOException $e) {
+        echo 'Erreur de requête : ' . $e->getMessage();
+        return []; 
+        }
     }
 }

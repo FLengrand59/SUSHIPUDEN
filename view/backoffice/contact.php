@@ -33,7 +33,8 @@ include "./../../controller/readController.php";
                                     <tbody>
                                         <tr>
                                         <?php
-                                            foreach($recupAllContact as $row) {
+                                        // on appele  la variable créer dans le controller qui va renvoyé les données
+                                            foreach($recupFormContact as $row) {
                                                 $badgeClass = ($row['statut'] === "0") ? "badge-danger" : "badge-success";
                                                 $badgeText = ($row['statut'] === "0") ? "Non lu" : "Déjà consulté";
                                                 $idContact = htmlspecialchars($row['id_contact']);
