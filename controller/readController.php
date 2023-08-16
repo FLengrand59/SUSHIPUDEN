@@ -11,3 +11,6 @@
 require_once "../../model/management.class.php";
 
 $recupFormContact = Management::readFormContact("");
+
+
+$recupReservation = Management::readReservation("");

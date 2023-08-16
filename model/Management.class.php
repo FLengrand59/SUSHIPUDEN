@@ -114,6 +114,22 @@ class Management
 
 
     // AFFICHAGE D'UNE RESERVATION
+    public static function readReservation()
+    {
+        try {
+            $db = Singleton::getInstance()->getConnection();
+            $sql = "SELECT * FROM Reservation";
+            $requete = $db->prepare($sql);
+            $requete->execute();
+            $result = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
+        } catch (PDOException $e) {
+        echo 'Erreur de requête : ' . $e->getMessage();
+        return []; 
+        }
+    }
+}
 
 
 
@@ -130,8 +146,8 @@ class Management
 
             return $result;
         } catch (PDOException $e) {
-        echo 'Erreur de requête : ' . $e->getMessage();
-        return []; 
+            echo 'Erreur de requête : ' . $e->getMessage();
+            return [];
         }
     }
 }
