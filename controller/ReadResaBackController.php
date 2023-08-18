@@ -3,7 +3,7 @@
 require_once "./../../model/Management.class.php";
 
 
-$recupResa = Management::readResa("");
+$recupResa = Management::readReservation("");
 
 
 ?>
