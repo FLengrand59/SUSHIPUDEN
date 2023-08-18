@@ -129,7 +129,6 @@ class Management
         return []; 
         }
     }
-}
 
 
 
