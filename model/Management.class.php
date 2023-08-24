@@ -1,6 +1,6 @@
 <?php
 
-require_once  "/../../model/Singleton.class.php";
+require_once  "../../model/Singleton.class.php";
 
 /**
  * Class Management
@@ -149,24 +149,25 @@ class Management
             return [];
         }
     }
-}
 
 
 // Affichage de la Newsletter
 
 
-    // public static function readNewsletter()
-    // {
-    //     try {
-    //         $db = Singleton::getInstance()->getConnection();
-    //         $sql = "SELECT * FROM Newsletter";
-    //         $requete = $db->prepare($sql);
-    //         $requete->execute();
-    //         $result = $requete->fetchAll(PDO::FETCH_ASSOC);
+    public static function readNewsletter()
+    {
+        try {
+            $db = Singleton::getInstance()->getConnection();
+            $sql = "SELECT * FROM Newsletter";
+            $requete = $db->prepare($sql);
+            $requete->execute();
+            $result = $requete->fetchAll(PDO::FETCH_ASSOC);
 
-    //         return $result;
-    //     } catch (PDOException$e) {
-    //         echo 'Erreur de requête : ' . $e->getMessage();
-    //         return [];
-    //     }
-    // }
+            return $result;
+        } catch (PDOException$e) {
+            echo 'Erreur de requête : ' . $e->getMessage();
+            return [];
+        }
+    }
+
+}

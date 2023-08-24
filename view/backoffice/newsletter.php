@@ -1,6 +1,7 @@
 <?php 
 
 include './common/menu.php'; 
+include './../../controller/listNewsletter.php';
 
 ?>
     <!-- main content -->
@@ -27,12 +28,17 @@ include './common/menu.php';
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php foreach ($recupNewsletter as $row){  ?>
                                 <tr>
-                                        <td>mail@mail.com</td>
-                                        <td>09/12/2022</td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo date("d/m/Y", strtotime($row['date'])); ?></td>
                                         <td>
-                                            <span class="badge badge-pill badge-success">Envoyé</span
-                                        ></td>
+                                            <?php if ($row['etat'] === "0") { ?>
+                                                <span class="badge badge-pill badge-success">Envoyé</span>
+                                            <?php } else { ?>
+                                                <span class="badge badge-pill badge-danger">non-envoyé</span>
+                                            <?php } ?>
+                                        </td>
                                         <td>
                                             <div class="dropdown ml-auto">
                                                 <button class="btn d-flex align-items-center" id="logout-dropdown" data-toggle="dropdown" aria-expanded="false">
@@ -45,46 +51,8 @@ include './common/menu.php';
                                             </div>
                                         </td>
                                 </tr>
+                            <?php } ?>
 
-                                <tr>
-
-                                        <td>hello@mail.com</td>
-                                        <td>05/06/2023</td>
-                                        <td>
-                                            <span class="badge badge-pill badge-success">Envoyé</span
-                                        ></td>
-
-                                        <td>
-                                            <div class="dropdown ml-auto">
-                                                <button class="btn d-flex align-items-center" id="logout-dropdown" data-toggle="dropdown" aria-expanded="false">
-                                                    <i class="iconoir-more-vert icme pb-1"></i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right border-0 shadow-sm" aria-labelledby="logout-dropdown">
-                                                <a class="dropdown-item" href="#">Ré-envoyer le mail de réduction</a>
-                                                    <a class="dropdown-item" href="#">Supprimer</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                </tr>
-
-                                <tr>
-                                        <td>holla@mail.com</td>
-                                        <td>02/08/2023</td>
-                                        <td>
-                                            <span class="badge badge-pill badge-success">Envoyé</span
-                                        ></td>
-                                        <td>
-                                            <div class="dropdown ml-auto">
-                                                <button class="btn d-flex align-items-center" id="logout-dropdown" data-toggle="dropdown" aria-expanded="false">
-                                                    <i class="iconoir-more-vert icme pb-1"></i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right border-0 shadow-sm" aria-labelledby="logout-dropdown">
-                                                <a class="dropdown-item" href="#">Ré-envoyer le mail de réduction</a>
-                                                    <a class="dropdown-item" href="#">Supprimer</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                </tr>
                                 
                         
                             </tbody>
