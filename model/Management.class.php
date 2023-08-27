@@ -130,9 +130,27 @@ class Management
         }
     }
 
+    // UPDATE DE LA RESERVATION
+    public static function updateReservation($reservationId, $nouveauService) {
+        try {
+            $db = Singleton::getInstance()->getConnection();
+            $sql = "UPDATE reservation SET service = :nouveauService WHERE id = :reservationId";
+            $requete = $db->prepare($sql);
+            $requete->bindParam(':nouveauService', $nouveauService, PDO::PARAM_STR);
+            $requete->bindParam(':reservationId', $reservationId, PDO::PARAM_INT);
+            $requete->execute();
+            
+            $rowCount = $requete->rowCount();
+    
+            return $rowCount;
+        } catch (PDOException $e) {
+            echo 'Erreur de requête : ' . $e->getMessage();
+            return 0;
+        }
+    }
 
 
-    // Ajoute un try catch pour gerer les erreur
+    // AFFICHAGE DANS CONTACT
 
     public static function readFormContact()
     {
@@ -164,10 +182,8 @@ class Management
             $result = $requete->fetchAll(PDO::FETCH_ASSOC);
 
             return $result;
-        } catch (PDOException$e) {
+        } catch (PDOException $e) {
             echo 'Erreur de requête : ' . $e->getMessage();
             return [];
         }
     }
-
-}
