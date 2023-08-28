@@ -1,4 +1,6 @@
 <?php
-    require_once "./updateReservation.php";
+require_once "./updateReservation.php";
 
-    $updateReservation = Management::updateReservation("");
+$updateReservation = Management::updateReservation("");
+
+?>

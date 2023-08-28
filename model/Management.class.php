@@ -113,8 +113,40 @@ class Management
     // }
 
 
+
+
+    // CREATION D'UNE NOUVELLE RESERVATION
+    public static function createReservation(Reservation $reservation)
+    {
+        try {
+            $db = Singleton::getInstance()->getConnection();
+            $sql = 'INSERT INTO reservation (id_reservation, nom, prenom, email, n_tel, jour, nbre_couverts, service, nom_etat) 
+                    VALUES (:nom, :prenom, :email, :telephone, :date, :couverts, :service, :etat)';
+            $statement = $db->prepare($sql);
+
+            $data = [
+                'nom' => $reservation->getNom(),
+                'prenom' => $reservation->getPrenom(),
+                'email' => $reservation->getEmail(),
+                'telephone' => $reservation->getTelephone(),
+                'date' => $reservation->getDate(),            
+                'couverts' => $reservation->getCouverts(),
+                'service' => $reservation->getService(),
+                'etat' => $reservation->getEtat(),
+            ];
+
+            $statement->execute($data);
+
+            return $result;
+        } catch (PDOException $e) {
+            echo 'Erreur de requête : ' . $e->getMessage();
+            return 0; 
+        }
+    }
+
+
     // AFFICHAGE D'UNE RESERVATION
-    public static function readReservation()
+    public static function readReservation($id_reservation)
     {
         try {
             $db = Singleton::getInstance()->getConnection();
@@ -131,10 +163,10 @@ class Management
     }
 
     // UPDATE DE LA RESERVATION
-    public static function updateReservation($reservationId, $nouveauService) {
+    public static function updateReservation($id_reservation) {
         try {
             $db = Singleton::getInstance()->getConnection();
-            $sql = "UPDATE reservation SET service = :nouveauService WHERE id = :reservationId";
+            $sql = "UPDATE reservation SET service = 'soir' WHERE id = Id_reservation";
             $requete = $db->prepare($sql);
             $requete->bindParam(':nouveauService', $nouveauService, PDO::PARAM_STR);
             $requete->bindParam(':reservationId', $reservationId, PDO::PARAM_INT);
@@ -150,9 +182,21 @@ class Management
     }
 
 
+    // SUPPRESSION DE LA RESERVATION
+    public static function deleteReservation($id_reservation)
+    {
+        $db = Singleton::getInstance()->getConnection();
+        $sql = "DELETE FROM reservation WHERE id_reservation = :id_reservation";
+        $requete = $db->prepare($sql);
+        $requete->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);
+        $requete->execute();
+
+    }
+
+
     // AFFICHAGE DANS CONTACT
 
-    public static function readFormContact()
+    public static function readFormContact($id_contact)
     {
         try {
             $db = Singleton::getInstance()->getConnection();
@@ -172,7 +216,7 @@ class Management
 // Affichage de la Newsletter
 
 
-    public static function readNewsletter()
+    public static function readNewsletter($id_newsletter)
     {
         try {
             $db = Singleton::getInstance()->getConnection();
