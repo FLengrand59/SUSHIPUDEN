@@ -40,11 +40,11 @@ include '../../controller/readResaBackController.php';
                                         <tr>
                                             <td><?php echo $row['nom']; ?></td>
                                             <td><?php echo $row['prenom']; ?></td>
-                                            <td><?php echo $row['telephone']; ?></td>
+                                            <td><?php echo $row['n_tel']; ?></td>
                                             <td><?php echo $row['email']; ?></td>
                                             <!-- Formatage de la date -->
-                                            <td><?php echo date("20/08/2023", strtotime($row['date'])); ?></td>
-                                            <td><?php echo $row['couverts']; ?></td>
+                                            <td><?php echo date("20/08/2023", strtotime($row['jour'])); ?></td>
+                                            <td><?php echo $row['nbre_couverts']; ?></td>
                                             <td>
                                                 <?php if ($row['service'] === "0") { ?>
                                                     <?php echo "Midi"; ?>
@@ -54,15 +54,15 @@ include '../../controller/readResaBackController.php';
                                             </td>
                                             <td>
                                                 <!-- Selon l'etat on affiche un badge différent -->
-                                                <?php if ($row['etat'] === "0") { ?>
+                                                <?php if ($row['nom_etat'] === "0") { ?>
                                                     <span class="badge badge-pill badge-warning">
                                                         <?php echo "En attente"; ?>
                                                     </span>
-                                                <?php } elseif ($row['etat'] === "1") { ?>
+                                                <?php } elseif ($row['nom_etat'] === "1") { ?>
                                                     <span class="badge badge-pill badge-success">
                                                         <?php echo "Confirmé"; ?>
                                                     </span>
-                                                <?php } elseif ($row['etat'] === "2") { ?>
+                                                <?php } elseif ($row['nom_etat'] === "2") { ?>
                                                     <span class="badge badge-pill badge-danger">
                                                         <?php echo "Annulé"; ?>
                                                     </span>
