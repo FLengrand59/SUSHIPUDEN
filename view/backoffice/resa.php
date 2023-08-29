@@ -1,8 +1,9 @@
 <?php
 
 include './common/menu.php';
-include './../../controller/readResaBackController.php';
-include "../../controller/readController.php";
+include '../../controller/readResaBackController.php';
+// tu appel 2 controlleurs de lecture
+// include "./../controller/readController.php";
 
 ?>
 <!-- main content -->
@@ -35,17 +36,17 @@ include "../../controller/readController.php";
                                         </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($recupReservation as $readReservation) { ?>
+                                    <?php foreach ($recupReservation as $row) { ?>
                                         <tr>
-                                            <td><?php echo $row['Uzumaki']; ?></td>
-                                            <td><?php echo $row['Naruto']; ?></td>
-                                            <td><?php echo $row['0701020304']; ?></td>
-                                            <td><?php echo $row['konoha@gmail.com']; ?></td>
+                                            <td><?php echo $row['nom']; ?></td>
+                                            <td><?php echo $row['prenom']; ?></td>
+                                            <td><?php echo $row['telephone']; ?></td>
+                                            <td><?php echo $row['email']; ?></td>
                                             <!-- Formatage de la date -->
                                             <td><?php echo date("20/08/2023", strtotime($row['date'])); ?></td>
-                                            <td><?php echo $row['2']; ?></td>
+                                            <td><?php echo $row['couverts']; ?></td>
                                             <td>
-                                                <?php if ($row['midi'] === "0") { ?>
+                                                <?php if ($row['service'] === "0") { ?>
                                                     <?php echo "Midi"; ?>
                                                 <?php } else { ?>
                                                     <?php echo "Soir"; ?>

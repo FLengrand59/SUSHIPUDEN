@@ -1,7 +1,8 @@
 <?php
 
 require_once  "../../model/Singleton.class.php";
-require_once "../model/reservation.class.php";
+require_once "../../model/reservation.class.php";
+// ici ton chemin n'etait pas bon pour le modele reservation
 
 /**
  * Class Management
@@ -151,7 +152,7 @@ class Management
     {
         try {
             $db = Singleton::getInstance()->getConnection();
-            $sql = "SELECT * FROM Reservation";
+            $sql = "SELECT * FROM reservation";
             $requete = $db->prepare($sql);
             $requete->execute();
             $result = $requete->fetchAll(PDO::FETCH_ASSOC);
