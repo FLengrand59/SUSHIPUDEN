@@ -1,6 +1,7 @@
 <?php
 
 require_once  "../../model/Singleton.class.php";
+require_once "../model/reservation.class.php";
 
 /**
  * Class Management
@@ -116,7 +117,7 @@ class Management
 
 
     // CREATION D'UNE NOUVELLE RESERVATION
-    public static function createReservation(Reservation $reservation)
+    public static function createReservation($reservation)
     {
         try {
             $db = Singleton::getInstance()->getConnection();
@@ -128,19 +129,19 @@ class Management
                 'nom' => $reservation->getNom(),
                 'prenom' => $reservation->getPrenom(),
                 'email' => $reservation->getEmail(),
-                'telephone' => $reservation->getTelephone(),
-                'date' => $reservation->getDate(),            
-                'couverts' => $reservation->getCouverts(),
+                'telephone' => $reservation->getTel(),
+                'date' => $reservation->getDate(),
+                'couverts' => $reservation->getNbre_Couverts(),
                 'service' => $reservation->getService(),
                 'etat' => $reservation->getEtat(),
             ];
 
             $statement->execute($data);
 
-            return $result;
+            $statement->rowCount();
         } catch (PDOException $e) {
             echo 'Erreur de requête : ' . $e->getMessage();
-            return 0; 
+            return 0;
         }
     }
 
@@ -163,17 +164,17 @@ class Management
     }
 
     // UPDATE DE LA RESERVATION
-    public static function updateReservation($id_reservation) {
+    public static function updateReservation($id_reservation)
+    {
         try {
             $db = Singleton::getInstance()->getConnection();
-            $sql = "UPDATE reservation SET service = 'soir' WHERE id = Id_reservation";
+            $sql = "UPDATE reservation SET service = 'soir' WHERE id = :id_reservation";
             $requete = $db->prepare($sql);
-            $requete->bindParam(':nouveauService', $nouveauService, PDO::PARAM_STR);
-            $requete->bindParam(':reservationId', $reservationId, PDO::PARAM_INT);
+            $requete->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);
             $requete->execute();
-            
+
             $rowCount = $requete->rowCount();
-    
+
             return $rowCount;
         } catch (PDOException $e) {
             echo 'Erreur de requête : ' . $e->getMessage();
@@ -190,44 +191,44 @@ class Management
         $requete = $db->prepare($sql);
         $requete->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);
         $requete->execute();
-
     }
 
 
-    // AFFICHAGE DANS CONTACT
+    //     // AFFICHAGE DANS CONTACT
 
-    public static function readFormContact($id_contact)
-    {
-        try {
-            $db = Singleton::getInstance()->getConnection();
-            $sql = "SELECT * FROM Contact";
-            $requete = $db->prepare($sql);
-            $requete->execute();
-            $result = $requete->fetchAll(PDO::FETCH_ASSOC);
+    //     public static function readFormContact($id_contact)
+    //     {
+    //         try {
+    //             $db = Singleton::getInstance()->getConnection();
+    //             $sql = "SELECT * FROM Contact";
+    //             $requete = $db->prepare($sql);
+    //             $requete->execute();
+    //             $result = $requete->fetchAll(PDO::FETCH_ASSOC);
 
-            return $result;
-        } catch (PDOException $e) {
-            echo 'Erreur de requête : ' . $e->getMessage();
-            return [];
-        }
-    }
-
-
-// Affichage de la Newsletter
+    //             return $result;
+    //         } catch (PDOException $e) {
+    //             echo 'Erreur de requête : ' . $e->getMessage();
+    //             return [];
+    //         }
+    //     }
 
 
-    public static function readNewsletter($id_newsletter)
-    {
-        try {
-            $db = Singleton::getInstance()->getConnection();
-            $sql = "SELECT * FROM Newsletter";
-            $requete = $db->prepare($sql);
-            $requete->execute();
-            $result = $requete->fetchAll(PDO::FETCH_ASSOC);
+    // // Affichage de la Newsletter
 
-            return $result;
-        } catch (PDOException $e) {
-            echo 'Erreur de requête : ' . $e->getMessage();
-            return [];
-        }
-    }
+
+    //     public static function readNewsletter($id_newsletter)
+    //     {
+    //         try {
+    //             $db = Singleton::getInstance()->getConnection();
+    //             $sql = "SELECT * FROM Newsletter";
+    //             $requete = $db->prepare($sql);
+    //             $requete->execute();
+    //             $result = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+    //             return $result;
+    //         } catch (PDOException $e) {
+    //             echo 'Erreur de requête : ' . $e->getMessage();
+    //             return [];
+    //         }
+    //     }
+}

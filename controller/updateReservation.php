@@ -1,6 +1,4 @@
 <?php
-require_once "./updateReservation.php";
+require_once "../model/Management.class.php";
 
 $updateReservation = Management::updateReservation("");
-
-?>
