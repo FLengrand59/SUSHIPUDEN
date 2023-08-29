@@ -197,39 +197,39 @@ class Management
 
     //     // AFFICHAGE DANS CONTACT
 
-    //     public static function readFormContact($id_contact)
-    //     {
-    //         try {
-    //             $db = Singleton::getInstance()->getConnection();
-    //             $sql = "SELECT * FROM Contact";
-    //             $requete = $db->prepare($sql);
-    //             $requete->execute();
-    //             $result = $requete->fetchAll(PDO::FETCH_ASSOC);
+    public static function readFormContact($id_contact)
+    {
+        try {
+            $db = Singleton::getInstance()->getConnection();
+            $sql = "SELECT * FROM contact";
+            $requete = $db->prepare($sql);
+            $requete->execute();
+            $result = $requete->fetchAll(PDO::FETCH_ASSOC);
 
-    //             return $result;
-    //         } catch (PDOException $e) {
-    //             echo 'Erreur de requête : ' . $e->getMessage();
-    //             return [];
-    //         }
-    //     }
+            return $result;
+        } catch (PDOException $e) {
+            echo 'Erreur de requête : ' . $e->getMessage();
+            return [];
+        }
+    }
 
 
     // // Affichage de la Newsletter
 
 
-    //     public static function readNewsletter($id_newsletter)
-    //     {
-    //         try {
-    //             $db = Singleton::getInstance()->getConnection();
-    //             $sql = "SELECT * FROM Newsletter";
-    //             $requete = $db->prepare($sql);
-    //             $requete->execute();
-    //             $result = $requete->fetchAll(PDO::FETCH_ASSOC);
+    public static function readNewsletter($id_newsletter)
+    {
+        try {
+            $db = Singleton::getInstance()->getConnection();
+            $sql = "SELECT * FROM Newsletter";
+            $requete = $db->prepare($sql);
+            $requete->execute();
+            $result = $requete->fetchAll(PDO::FETCH_ASSOC);
 
-    //             return $result;
-    //         } catch (PDOException $e) {
-    //             echo 'Erreur de requête : ' . $e->getMessage();
-    //             return [];
-    //         }
-    //     }
+            return $result;
+        } catch (PDOException $e) {
+            echo 'Erreur de requête : ' . $e->getMessage();
+            return [];
+        }
+    }
 }
