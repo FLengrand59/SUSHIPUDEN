@@ -214,6 +214,33 @@ class Management
     }
 
 
+
+    // Creation d'une Newsletter
+    public static function createNewsletter($newsletter)
+    {
+        try {
+            $db = Singleton::getInstance()->getConnection();
+            $sql = 'INSERT INTO newsletter (mail, jour, etat) 
+                        VALUES (:mail, :jour, :etat)';
+            $statement = $db->prepare($sql);
+
+            $data = [
+                'mail' => $newsletter->getEmail(),
+                'jour' => $newsletter->getJours(),
+                'etat' => $newsletter->getEtat(),
+            ];
+
+            $statement->execute($data);
+
+            $rowCount = $statement->rowCount();
+
+            return $rowCount;
+        } catch (PDOException $e) {
+            echo 'Erreur de requête : ' . $e->getMessage();
+            return 0;
+        }
+    }
+
     // // Affichage de la Newsletter
 
 
