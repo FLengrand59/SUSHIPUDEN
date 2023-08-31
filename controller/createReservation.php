@@ -46,6 +46,7 @@ $newResa = new Reservation($recupNom,$recupPrenom,$recupEmail,$recupTel,$recupDa
 // Appel de la fonction statique createReservation 
 Management::createReservation($newResa);
 
+// var_dump($newResa);
 // une fois que le code s'execute on refresh la page
 header('Location: ./../view/backoffice/index.php');
 
