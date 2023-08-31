@@ -1,8 +1,6 @@
 <?php
 
-require_once  "../../model/Singleton.class.php";
-require_once "../../model/reservation.class.php";
-// ici ton chemin n'etait pas bon pour le modele reservation
+require_once  "Singleton.class.php";
 
 /**
  * Class Management
@@ -118,7 +116,36 @@ class Management
 
 
     // CREATION D'UNE NOUVELLE RESERVATION
-    public static function createReservation($reservation)
+    // public static function createReservation($reservation)
+    // {
+    //     try {
+    //         $db = Singleton::getInstance()->getConnection();
+    //         $sql = 'INSERT INTO reservation (nom, prenom, email, n_tel, jour, nbre_couverts, service, nom_etat) 
+    //                 VALUES (:nom, :prenom, :email, :telephone, :date, :couverts, :service, :etat)';
+    //         $statement = $db->prepare($sql);
+
+    //         $data = [
+    //             'nom' => $reservation->getNom(),
+    //             'prenom' => $reservation->getPrenom(),
+    //             'email' => $reservation->getEmail(),
+    //             'telephone' => $reservation->getTel(),
+    //             'date' => $reservation->getDate(),
+    //             'couverts' => $reservation->getNbre_Couverts(),
+    //             'service' => $reservation->getService(),
+    //             'etat' => $reservation->getEtat(),
+    //         ];
+
+    //         $statement->execute($data);
+
+    //         $rowCount = $statement->rowCount();
+    //         return $rowCount;
+    //     } catch (PDOException $e) {
+    //         echo 'Erreur de requête : ' . $e->getMessage();
+    //         return 0;
+    //     }
+    // }
+
+    public static function createReservation(Reservation $reservation)
     {
         try {
             $db = Singleton::getInstance()->getConnection();
@@ -139,14 +166,12 @@ class Management
 
             $statement->execute($data);
 
-            $rowCount = $statement->rowCount();
-            return $rowCount;
+            return $db->lastInsertId();
         } catch (PDOException $e) {
             echo 'Erreur de requête : ' . $e->getMessage();
-            return 0;
+            return 0; 
         }
     }
-
 
     // AFFICHAGE D'UNE RESERVATION
     public static function readReservation($id_reservation)
@@ -188,20 +213,12 @@ class Management
     // SUPPRESSION DE LA RESERVATION
     public static function deleteReservation($id_reservation)
     {
-        try {
-            $db = Singleton::getInstance()->getConnection();
-            $sql = "DELETE FROM reservation WHERE id_reservation = :id_reservation";
-            $requete = $db->prepare($sql);
-            $requete->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);
-            $requete->execute();
+        $db = Singleton::getInstance()->getConnection();
+        $sql = "DELETE FROM reservation WHERE id_reservation = :id_reservationRecup";
+        $requete = $db->prepare($sql);
+        $requete->bindParam(':id_reservationRecup', $id_reservation, PDO::PARAM_INT);
+        $requete->execute();
 
-            $rowCount = $requete->rowCount();
-
-            return $rowCount;
-        } catch (PDOException $e) {
-            echo 'Erreur de requête : ' . $e->getMessage();
-            return 0;
-        }
     }
 
 

@@ -77,7 +77,7 @@ include '../../controller/readResaBackController.php';
                                                         <a class="dropdown-item" href="#">Confirmer la réservation</a>
                                                         <a class="dropdown-item" href="#">Annuler la réservation</a>
                                                         <a class="dropdown-item" href="#">Mettre en attente</a>
-                                                        <a class="dropdown-item" href="./../../controller/deleteResaController.php?id_reservation=<?php echo $row['id_reservation'] ?>">Supprimer</a>
+                                                        <a class="dropdown-item" href="./../../controller/deleteReservation.php?id_reservation=<?php echo $row['id_reservation'] ?>">Supprimer</a>
                                                     </div>
                                                 </div>
                                             </td>

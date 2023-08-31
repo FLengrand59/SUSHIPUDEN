@@ -123,7 +123,8 @@ include './common/menu.php';
                                 <div class="row">
                                     <div class="col-12">      
                                         <!-- form ajout d'une réservations -->
-                                        <form action="" enctype="multipart/form-data" method="POST" id="addForm" role="form">
+                                        <!-- ici ont appelle le controller de creation de reservation  -->
+                                        <form action="../../controller/createReservation.php" method="POST" id="addForm" role="form">
                                             <div class="form-group row mb-3">
                                                 <div class="col-lg-6 col-6 pb-2">
                                                     <input class="form-control mb-4" name="nom" type="text" placeholder="Nom">
@@ -144,13 +145,13 @@ include './common/menu.php';
                                                     <input class="form-control mb-4" name="couverts" type="text" placeholder="Nombre couverts">  
                                                 </div> 
                                                 <div class="col-lg-4 col-4 pb-2">
-                                                    <select class="form-select mySelectArrow">
+                                                    <select class="form-select mySelectArrow" name="service">
                                                         <option value="" selected>Services</option>
-                                                        <option value="">Midi</option>
-                                                        <option value="">Soir</option>
+                                                        <option value="0">Midi</option>
+                                                        <option value="1">Soir</option>
                                                     </select>
                                                 </div>
-                                                
+                                                <input type="hidden" value="<?php echo $row['etat'];?>" name="etat">
                                                 <br>
                                                 <br>    
                                                 <div class="col-lg-6 text-center">                                             
