@@ -122,7 +122,7 @@ class Management
     {
         try {
             $db = Singleton::getInstance()->getConnection();
-            $sql = 'INSERT INTO reservation (id_reservation, nom, prenom, email, n_tel, jour, nbre_couverts, service, nom_etat) 
+            $sql = 'INSERT INTO reservation (nom, prenom, email, n_tel, jour, nbre_couverts, service, nom_etat) 
                     VALUES (:nom, :prenom, :email, :telephone, :date, :couverts, :service, :etat)';
             $statement = $db->prepare($sql);
 
@@ -139,7 +139,8 @@ class Management
 
             $statement->execute($data);
 
-            $statement->rowCount();
+            $rowCount = $statement->rowCount();
+            return $rowCount;
         } catch (PDOException $e) {
             echo 'Erreur de requête : ' . $e->getMessage();
             return 0;
@@ -187,11 +188,20 @@ class Management
     // SUPPRESSION DE LA RESERVATION
     public static function deleteReservation($id_reservation)
     {
-        $db = Singleton::getInstance()->getConnection();
-        $sql = "DELETE FROM reservation WHERE id_reservation = :id_reservation";
-        $requete = $db->prepare($sql);
-        $requete->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);
-        $requete->execute();
+        try {
+            $db = Singleton::getInstance()->getConnection();
+            $sql = "DELETE FROM reservation WHERE id_reservation = :id_reservation";
+            $requete = $db->prepare($sql);
+            $requete->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);
+            $requete->execute();
+
+            $rowCount = $requete->rowCount();
+
+            return $rowCount;
+        } catch (PDOException $e) {
+            echo 'Erreur de requête : ' . $e->getMessage();
+            return 0;
+        }
     }
 
 
