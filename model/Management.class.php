@@ -157,9 +157,9 @@ class Management
                 'nom' => $reservation->getNom(),
                 'prenom' => $reservation->getPrenom(),
                 'email' => $reservation->getEmail(),
-                'telephone' => $reservation->getTel(),
+                'telephone' => $reservation->getTelephone(),
                 'date' => $reservation->getDate(),
-                'couverts' => $reservation->getNbre_Couverts(),
+                'couverts' => $reservation->getCouverts(),
                 'service' => $reservation->getService(),
                 'etat' => $reservation->getEtat(),
             ];
