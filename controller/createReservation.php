@@ -42,7 +42,7 @@ $recupService = $_POST['service'];
 $recupEtat = '0';
 
 // ici on lui dit que $newResa est une nouvelle instanciation de la class Reservation c'est a dire qu'on crée une nouvelle reservation en bdd
-$newResa = new Reservation($recupNom,$recupPrenom,$recupEmail,$recupTel,$recupDate,$recupCouverts,$recupService,$recupEtat);
+$newResa = new Reservation($recupNom, $recupPrenom, $recupEmail, $recupTel, $recupDate, $recupCouverts, $recupService, $recupEtat);
 // Appel de la fonction statique createReservation 
 Management::createReservation($newResa);
 

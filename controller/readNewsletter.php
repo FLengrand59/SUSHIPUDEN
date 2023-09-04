@@ -2,4 +2,4 @@
 
 require_once "./../../model/Management.class.php";
 
-$recupNewsletter = Management::readNewsletter("");
+$readNewsletter = Management::readNewsletter("");

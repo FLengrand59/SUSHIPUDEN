@@ -1,8 +1,7 @@
 <?php
 
 include './common/menu.php';
-include './../../controller/listNewsletter.php';
-
+include '../../controller/readNewsletter.php';
 ?>
 <!-- main content -->
 <main class="p-4 mh-100">
@@ -28,12 +27,12 @@ include './../../controller/listNewsletter.php';
                                         </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($recupNewsletter as $row) {  ?>
+                                    <?php foreach ($readNewsletter as $row) {  ?>
                                         <tr>
                                             <td><?php echo $row['mail']; ?></td>
                                             <td><?php echo date("d/m/Y", strtotime($row['jour'])); ?></td>
                                             <td>
-                                                <?php if ($row['etat'] === "0") { ?>
+                                                <?php if ($row['etat'] === "1") { ?>
                                                     <span class="badge badge-pill badge-success">Envoyé</span>
                                                 <?php } else { ?>
                                                     <span class="badge badge-pill badge-danger">non-envoyé</span>
@@ -65,6 +64,5 @@ include './../../controller/listNewsletter.php';
         </div>
     </div>
 </main>
-
 
 <?php include './common/footer.php'; ?>

@@ -169,7 +169,7 @@ class Management
             return $db->lastInsertId();
         } catch (PDOException $e) {
             echo 'Erreur de requête : ' . $e->getMessage();
-            return 0; 
+            return 0;
         }
     }
 
@@ -218,7 +218,6 @@ class Management
         $requete = $db->prepare($sql);
         $requete->bindParam(':id_reservationRecup', $id_reservation, PDO::PARAM_INT);
         $requete->execute();
-
     }
 
 
@@ -243,7 +242,7 @@ class Management
 
 
     // Creation d'une Newsletter
-    public static function createNewsletter($newsletter)
+    public static function createNewsletter(Newsletter $newsletter)
     {
         try {
             $db = Singleton::getInstance()->getConnection();
@@ -254,14 +253,14 @@ class Management
             $data = [
                 'mail' => $newsletter->getEmail(),
                 'jour' => $newsletter->getJours(),
-                'etat' => $newsletter->getEtat(),
+                'etat' => 0,
             ];
 
             $statement->execute($data);
 
             $rowCount = $statement->rowCount();
 
-            return $rowCount;
+            return $db->lastInsertId();
         } catch (PDOException $e) {
             echo 'Erreur de requête : ' . $e->getMessage();
             return 0;
@@ -287,3 +286,5 @@ class Management
         }
     }
 }
+
+// Update de la newsletter
