@@ -221,25 +221,6 @@ class Management
     }
 
 
-    //     // AFFICHAGE DANS CONTACT
-
-    public static function readFormContact($id_contact)
-    {
-        try {
-            $db = Singleton::getInstance()->getConnection();
-            $sql = "SELECT * FROM contact";
-            $requete = $db->prepare($sql);
-            $requete->execute();
-            $result = $requete->fetchAll(PDO::FETCH_ASSOC);
-
-            return $result;
-        } catch (PDOException $e) {
-            echo 'Erreur de requête : ' . $e->getMessage();
-            return [];
-        }
-    }
-
-
 
     // Creation d'une Newsletter
     public static function createNewsletter(Newsletter $newsletter)
@@ -247,18 +228,17 @@ class Management
         try {
             $db = Singleton::getInstance()->getConnection();
             $sql = 'INSERT INTO newsletter (mail, jour, etat) 
-                        VALUES (:mail, :jour, :etat)';
+                    VALUES (:mail, :jour, :etat)';
             $statement = $db->prepare($sql);
 
             $data = [
+
                 'mail' => $newsletter->getEmail(),
                 'jour' => $newsletter->getJours(),
                 'etat' => 0,
             ];
 
             $statement->execute($data);
-
-            $rowCount = $statement->rowCount();
 
             return $db->lastInsertId();
         } catch (PDOException $e) {
