@@ -1,19 +1,19 @@
 <?php
 
-require_once "./../model/Management.class.php";
+require_once "../model/Management.class.php";
 
-session_start();
+$createNewsletter = Management::createNewsletter("$newsletter");
 
-$recupEmail = htmlspecialchars($_POST['email']);
-$recupDate = date('Y-m-d H-i-s');
-$recupEtat = $_POST['etat'];
+$newsletter = new Newsletter();
+$newsletter->setEmail("unknown@gmail.com");
+$newsletter->setJours("07/09/2023");
+$newsletter->setEtat(0);
 
 
-$newEmail = new Newsletter($recupEmail, $recupDate, $recupEtat);
-Management::createNewsletter($newEmail);
+$result = Management::createNewsletter($newsletter);
 
-if ($newEmail) {
-    $_SESSION['notification2'] = "Vous recevrez bientot votre coupon de reduction !";
+if ($result > 0) {
+    echo "Le Mail a bien été envoyé !";
 } else {
-    $_SESSION['notification3'] = "Une erreur s'est produite lors de votre inscirption à la newsletter.";
+    echo "Une erreur s'est produite lors de l'envoi du coupon de reduction";
 }
