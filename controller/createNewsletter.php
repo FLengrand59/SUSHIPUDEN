@@ -12,7 +12,7 @@ $recupEtat = $_POST['etat'];
 
 // Validation et échappement des données
 $newEmail = new Newsletter($recupEmail, $recupDate, $recupEtat);
-Management::createEmailNewsletter($newEmail);
+Management::createNewsletter($newEmail);
 
 
 if ($newEmail) {

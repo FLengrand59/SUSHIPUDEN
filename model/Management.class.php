@@ -223,7 +223,7 @@ class Management
 
 
     // Creation d'une Newsletter
-    public static function createEmailNewsletter(Newsletter $newsletter)
+    public static function createNewsletter(Newsletter $newsletter)
     {
         try {
             $db = Singleton::getInstance()->getConnection();
@@ -269,20 +269,15 @@ class Management
 
 // Update de la newsletter
 
-// public static function updateNewsletter($id_newsletter)
-// {
-//     try {
-//         $db = Singleton::getInstance()->getConnection();
-//         $sql = "UPDATE newsletter SET etat = '1' WHERE id = :id_newsletter";
-//         $requete = $db->prepare($sql);
-//         $requete->bindParam(':id_newsletter', $id_newsletter, PDO::PARAM_INT);
-//         $requete->execute();
 
-//         $rowCount = $requete->rowCount();
 
-//         return $rowCount;
-//     } catch (PDOException $e) {
-//         echo 'Erreur de requête : ' . $e->getMessage();
-//         return 0;
-//     }
-// }
+    // Delete la newsletter
+
+    // public static function deleteNewsletter($id_newsletter)
+    // {
+    //     $db = Singleton::getInstance()->getConnection();
+    //     $sql = "DELETE FROM newsletter WHERE id_newsletter = :id_newsletterRecup";
+    //     $requete = $db->prepare($sql);
+    //     $requete->bindParam(':id_newsletterRecup', $id_newsletter, PDO::PARAM_INT);
+    //     $requete->execute();
+    // }
