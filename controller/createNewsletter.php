@@ -1,19 +1,26 @@
 <?php
 
-require_once "../model/Management.class.php";
+require_once "./../model/Management.class.php";
+require_once "./../model/Newsletter.class.php";
 
-$createNewsletter = Management::createNewsletter("$newsletter");
+// Démarre la session pour les notifications
+session_start();
 
-$newsletter = new Newsletter();
-$newsletter->setEmail("unknown@gmail.com");
-$newsletter->setJours("07/09/2023");
-$newsletter->setEtat(0);
+$recupEmail = htmlspecialchars($_POST['mmail']);
+$recupDate = date('Y-m-d H:i:s');
+$recupEtat = $_POST['etat'];
+
+// Validation et échappement des données
+$newEmail = new Newsletter($recupEmail, $recupDate, $recupEtat);
+Management::createEmailNewsletter($newEmail);
 
 
-$result = Management::createNewsletter($newsletter);
-
-if ($result > 0) {
-    echo "Le Mail a bien été envoyé !";
+if ($newEmail) {
+    // Stockage de la notification dans la variable de session
+    $_SESSION['notification2'] = "Vous recevrez bientôt votre coupon de réduction !";
 } else {
-    echo "Une erreur s'est produite lors de l'envoi du coupon de reduction";
+    // Gestion d'une validation incorrecte des données
+    $_SESSION['notification3'] = "Une erreur s'est produite lors de l'inscription à la newsletter.";
 }
+
+header('Location: ../index.php');

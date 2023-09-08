@@ -223,7 +223,7 @@ class Management
 
 
     // Creation d'une Newsletter
-    public static function createNewsletter(Newsletter $newsletter)
+    public static function createEmailNewsletter(Newsletter $newsletter)
     {
         try {
             $db = Singleton::getInstance()->getConnection();
@@ -234,7 +234,7 @@ class Management
             $data = [
 
                 'mail' => $newsletter->getEmail(),
-                'jour' => $newsletter->getJours(),
+                'jour' => $newsletter->getDate(),
                 'etat' => 0,
             ];
 
