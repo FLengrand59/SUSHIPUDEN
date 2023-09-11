@@ -268,7 +268,7 @@
                 <p class="">Bénéficier d'un coupon de réduction en vous abonnant à notre newsletter !</p>
                 <br>
                 <div class="d-flex">
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" required style="background:#383838;">
+                    <input type="text" class="form-control" id="mail" name="mail" placeholder="Email" required style="background:#383838;">
                     <input type="hidden" value="0" name="etat">
                     <input type="submit" class="btn btndash" value="S'abonner">
                 </div>
