@@ -1,6 +1,6 @@
 <?php
 
-require_once  "Singleton.class.php";
+include_once "Singleton.class.php";
 
 /**
  * Class Management
