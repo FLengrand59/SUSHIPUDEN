@@ -3,6 +3,8 @@
 
 require_once "../model/Management.class.php";
 
-$updateNewsletter = Management::updateNewsletter("");
+$id_newsletter = $_GET['id_newsletter'];
 
-var_dump($updateNewsletter);
+Management::updateNewsletter($id_newsletter);
+
+header('Location: ./../view/backoffice/newsletter.php');
