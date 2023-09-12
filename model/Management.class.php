@@ -265,19 +265,26 @@ class Management
             return [];
         }
     }
-}
 
-// Update de la newsletter
-
+    // Update de la newsletter
+    public static function updateNewsletter($id_newsletter)
+    {
+        $db = Singleton::getInstance()->getConnection();
+        $stmt = $db->prepare("UPDATE newsletter SET etat=:recupEtat WHERE id_newsletter = :idNewsletterRecup");
+        $stmt->bindValue(':idNewsletterRecup', $id_newsletter, PDO::PARAM_INT);
+        $stmt->bindValue(':recupEtat', "1", PDO::PARAM_INT);
+        $stmt->execute();
+    }
 
 
     // Delete la newsletter
 
-    // public static function deleteNewsletter($id_newsletter)
-    // {
-    //     $db = Singleton::getInstance()->getConnection();
-    //     $sql = "DELETE FROM newsletter WHERE id_newsletter = :id_newsletterRecup";
-    //     $requete = $db->prepare($sql);
-    //     $requete->bindParam(':id_newsletterRecup', $id_newsletter, PDO::PARAM_INT);
-    //     $requete->execute();
-    // }
+    public static function deleteNewsletter($id_newsletter)
+    {
+        $db = Singleton::getInstance()->getConnection();
+        $sql = "DELETE FROM newsletter WHERE id_newsletter = :id_newsletterRecup";
+        $requete = $db->prepare($sql);
+        $requete->bindParam(':id_newsletterRecup', $id_newsletter, PDO::PARAM_INT);
+        $requete->execute();
+    }
+}
