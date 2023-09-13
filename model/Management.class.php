@@ -12,21 +12,21 @@ class Management
 
     /* Affichage des message reçus dans le back-office */
 
-    // public static function readContacts()
-    // {
-    //     try {
-    //         $db = Singleton::getInstance()->getConnection();
-    //         $sql = "SELECT * FROM `contact`";
-    //         $requete = $db->prepare($sql);
-    //         $requete->execute();
-    //         $result = $requete->fetchAll(PDO::FETCH_ASSOC);
+    public static function readContacts()
+    {
+        try {
+            $db = Singleton::getInstance()->getConnection();
+            $sql = "SELECT * FROM `contact`";
+            $requete = $db->prepare($sql);
+            $requete->execute();
+            $result = $requete->fetchAll(PDO::FETCH_ASSOC);
 
-    //         return $result;
-    //     } catch (PDOException $e) {
-    //         echo 'Erreur de requête : ' . $e->getMessage();
-    //         return []; 
-    //     }
-    // }
+            return $result;
+        } catch (PDOException $e) {
+            echo 'Erreur de requête : ' . $e->getMessage();
+            return []; 
+        }
+    }
 
     // /* Compteur reservation du jour */
     // public static function countResa()
@@ -116,36 +116,7 @@ class Management
 
 
     // CREATION D'UNE NOUVELLE RESERVATION
-    // public static function createReservation($reservation)
-    // {
-    //     try {
-    //         $db = Singleton::getInstance()->getConnection();
-    //         $sql = 'INSERT INTO reservation (nom, prenom, email, n_tel, jour, nbre_couverts, service, nom_etat) 
-    //                 VALUES (:nom, :prenom, :email, :telephone, :date, :couverts, :service, :etat)';
-    //         $statement = $db->prepare($sql);
-
-    //         $data = [
-    //             'nom' => $reservation->getNom(),
-    //             'prenom' => $reservation->getPrenom(),
-    //             'email' => $reservation->getEmail(),
-    //             'telephone' => $reservation->getTel(),
-    //             'date' => $reservation->getDate(),
-    //             'couverts' => $reservation->getNbre_Couverts(),
-    //             'service' => $reservation->getService(),
-    //             'etat' => $reservation->getEtat(),
-    //         ];
-
-    //         $statement->execute($data);
-
-    //         $rowCount = $statement->rowCount();
-    //         return $rowCount;
-    //     } catch (PDOException $e) {
-    //         echo 'Erreur de requête : ' . $e->getMessage();
-    //         return 0;
-    //     }
-    // }
-
-    public static function createReservation(Reservation $reservation)
+    public static function createReservation($reservation)
     {
         try {
             $db = Singleton::getInstance()->getConnection();
@@ -157,16 +128,17 @@ class Management
                 'nom' => $reservation->getNom(),
                 'prenom' => $reservation->getPrenom(),
                 'email' => $reservation->getEmail(),
-                'telephone' => $reservation->getTelephone(),
+                'telephone' => $reservation->getTel(),
                 'date' => $reservation->getDate(),
-                'couverts' => $reservation->getCouverts(),
+                'couverts' => $reservation->getNbre_Couverts(),
                 'service' => $reservation->getService(),
                 'etat' => $reservation->getEtat(),
             ];
 
             $statement->execute($data);
 
-            return $db->lastInsertId();
+            $rowCount = $statement->rowCount();
+            return $rowCount;
         } catch (PDOException $e) {
             echo 'Erreur de requête : ' . $e->getMessage();
             return 0;

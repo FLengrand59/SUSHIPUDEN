@@ -34,9 +34,9 @@ include "./../../controller/readController.php";
                                     <tr>
                                         <?php
                                         // on appele  la variable créer dans le controller qui va renvoyé les données
-                                        foreach ($recupFormContact as $row) {
-                                            $badgeClass = ($row['statut'] === "0") ? "badge-danger" : "badge-success";
-                                            $badgeText = ($row['statut'] === "0") ? "Non lu" : "Déjà consulté";
+                                        foreach ($recupAllContact as $row) {
+                                            $badgeClass = ($row['etat'] === "0") ? "badge-danger" : "badge-success";
+                                            $badgeText = ($row['etat'] === "0") ? "Non lu" : "Déjà consulté";
                                             $idContact = htmlspecialchars($row['id_contact']);
                                             $escapedNom = htmlspecialchars($row['nom']);
                                             $escapedPrenom = htmlspecialchars($row['prenom']);
