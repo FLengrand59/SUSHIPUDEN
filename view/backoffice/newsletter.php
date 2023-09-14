@@ -49,7 +49,7 @@ include '../../controller/readNewsletter.php';
                                                         <?php else : ?>
                                                             <a class="dropdown-item" href="./../../controller/updateNewsletter.php?id_newsletter=<?php echo $row['id_newsletter']; ?>&email=<?php echo $row['email']; ?>">Réenvoyer l'e-mail de réduction</a>
                                                         <?php endif; ?>
-                                                        <a class="dropdown-item" href="./../../controller/updateNewsletter.php?id_newsletter=<?php echo $row['id_newsletter']; ?>">Supprimer</a>
+                                                        <a class="dropdown-item" href="./../../controller/deleteNewsletter.php?id_newsletter=<?php echo $row['id_newsletter']; ?>">Supprimer</a>
                                                     </div>
                                                 </div>
                                             </td>
