@@ -24,7 +24,7 @@ class Management
             return $result;
         } catch (PDOException $e) {
             echo 'Erreur de requête : ' . $e->getMessage();
-            return []; 
+            return [];
         }
     }
 
@@ -241,11 +241,15 @@ class Management
     // Update de la newsletter
     public static function updateNewsletter($id_newsletter)
     {
-        $db = Singleton::getInstance()->getConnection();
-        $stmt = $db->prepare("UPDATE newsletter SET etat=:recupEtat WHERE id_newsletter = :idNewsletterRecup");
-        $stmt->bindValue(':idNewsletterRecup', $id_newsletter, PDO::PARAM_INT);
-        $stmt->bindValue(':recupEtat', "1", PDO::PARAM_INT);
-        $stmt->execute();
+        try {
+            $db = Singleton::getInstance()->getConnection();
+            $stmt = $db->prepare("UPDATE newsletter SET etat=:recupEtat WHERE id_newsletter = :idNewsletterRecup");
+            $stmt->bindValue(':idNewsletterRecup', $id_newsletter);
+            $stmt->bindValue(':recupEtat', "1");
+            $stmt->execute();
+        } catch (PDOException $e) {
+            error_log("Database Error: " . $e->getMessage());
+        }
     }
 
 

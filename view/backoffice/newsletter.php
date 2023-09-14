@@ -44,13 +44,16 @@ include '../../controller/readNewsletter.php';
                                                         <i class="iconoir-more-vert icme pb-1"></i>
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-right border-0 shadow-sm" aria-labelledby="logout-dropdown">
-                                                        <a class="dropdown-item" href="#">Ré-envoyer le mail de réduction</a>
-                                                        <a class="dropdown-item" href="#">Supprimer</a>
+                                                        <?php if ($row['etat'] == 0) : ?>
+                                                            <a class="dropdown-item" href="./../../controller/updateNewsletter.php?php echo $row['id_newsletter']; ?>&email=<?php echo $row['email']; ?>">Envoyer l'e-mail de réduction</a>
+                                                        <?php else : ?>
+                                                            <a class="dropdown-item" href="./../../controller/updateNewsletter.php?id_newsletter=<?php echo $row['id_newsletter']; ?>&email=<?php echo $row['email']; ?>">Réenvoyer l'e-mail de réduction</a>
+                                                        <?php endif; ?>
+                                                        <a class="dropdown-item" href="./../../controller/updateNewsletter.php?id_newsletter=<?php echo $row['id_newsletter']; ?>">Supprimer</a>
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
-                                    <?php } ?>
+                                        <?php } ?>
 
 
 
