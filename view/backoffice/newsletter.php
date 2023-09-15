@@ -45,9 +45,9 @@ include '../../controller/readNewsletter.php';
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-right border-0 shadow-sm" aria-labelledby="logout-dropdown">
                                                         <?php if ($row['etat'] == 0) : ?>
-                                                            <a class="dropdown-item" href="./../../controller/updateNewsletter.php?php echo $row['id_newsletter']; ?>&email=<?php echo $row['email']; ?>">Envoyer l'e-mail de réduction</a>
+                                                            <a class="dropdown-item" href="./../../controller/updateNewsletter.php?php echo $row['id_newsletter']; ?>&email=<?php echo $row['mail']; ?>">Envoyer l'e-mail de réduction</a>
                                                         <?php else : ?>
-                                                            <a class="dropdown-item" href="./../../controller/updateNewsletter.php?id_newsletter=<?php echo $row['id_newsletter']; ?>&email=<?php echo $row['email']; ?>">Réenvoyer l'e-mail de réduction</a>
+                                                            <a class="dropdown-item" href="./../../controller/updateNewsletter.php?id_newsletter=<?php echo $row['id_newsletter']; ?>&email=<?php echo $row['mail']; ?>">Réenvoyer l'e-mail de réduction</a>
                                                         <?php endif; ?>
                                                         <a class="dropdown-item" href="./../../controller/deleteNewsletter.php?id_newsletter=<?php echo $row['id_newsletter']; ?>">Supprimer</a>
                                                     </div>
