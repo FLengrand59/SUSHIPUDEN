@@ -4,7 +4,7 @@ require_once "./../model/Management.class.php";
 require_once "./../model/Newsletter.class.php";
 
 $email = $_POST['email'];
-$id_newsletter = isset($_POST['id_newsletter']) ? $_POST['id_newsletter'] : null;
+$id_newsletter = isset($_GET['id_newsletter']) ? $_POST['id_newsletter'] : null;
 
 Management::updateNewsletter($id_newsletter);
 
