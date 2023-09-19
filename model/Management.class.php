@@ -8,6 +8,37 @@ include_once "Singleton.class.php";
 class Management
 {
 
+
+    // CREATE CONTACT
+
+    public static function createContact(Contact $contact)
+    {
+        try {
+            $sql = 'INSERT INTO contact (nom, prenom, email, message, date, statut, id_categories) 
+                    VALUES (:nom, :prenom,  :email, :message, :date, :statut, :id_categories)';
+            $statement = $db->prepare($sql);
+
+            $data = [
+                'nom' => $contact->getNom(),
+                'prenom' => $contact->getPrenom(),
+                'email' => $contact->getEmail(),
+                'message' => $contact->getMessage(),
+                'date' => $contact->getDate(),
+                'statut' => 0,
+                'id_categories' => $contact->getId_categories(),
+            ];
+
+            $statement->execute($data);
+
+            return $db->lastInsertId();
+        } catch (PDOException $e) {
+            echo 'Erreur de requête : ' . $e->getMessage();
+            return 0;
+        }
+    }
+
+
+
     // READ FONCTION //////
 
     /* Affichage des message reçus dans le back-office */

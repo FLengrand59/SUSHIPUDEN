@@ -205,7 +205,7 @@
                 <div class="form p-3">
                     <p class="mt-5">Indiquez le nombre de convives, la date et l’heure souhaitée afin de
                         garantir votre table dans notre restaurant</p>
-                    <form>
+                    <form class="px-4 py-2" action="./controller/createContact.php" method="POST" role="form">
                         <div class="row">
                             <div class="col">
                                 <label for="nom"></label>
