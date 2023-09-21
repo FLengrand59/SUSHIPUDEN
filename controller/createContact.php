@@ -16,10 +16,11 @@ $recupDate = date('Y-m-d H:i:s');
 
 if ($recupNom && $recupPrenom && $recupEmail !== false && $recupCategories > 0 && $recupMessage) {
     // Création de l'objet Contact en utilisant les données validées
-    $newForm = new Contact($recupNom, $recupPrenom, $recupEmail, $recupMessage, $recupDate, 0, $recupCategories);
+    $newForm = new Contact($recupNom, $recupPrenom, $recupEmail, $recupCategories, 0,  $recupMessage, $recupDate);
 
     // Appel de la méthode de création du formulaire
     Management::createContact($newForm);
+
 
     // Redirection après traitement
     header('Location: ../index.php');
