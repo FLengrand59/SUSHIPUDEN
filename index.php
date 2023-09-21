@@ -196,64 +196,57 @@
 
 
 <!-- Section contact -->
-<section>
-    <div class="container">
-        <div class="row">
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <div class="col-md-6 mt-5" id="contact">
+            <h2 class="display-3 bigtitle pb-4" style="padding-top: 81px;">Contact</h2>
+            <div class="form p-3">
+                <p class="px-3 py-3">Contactez l'équipe Sushipuden pour vos questions et demandes. Nous vous répondrons dans les plus brefs délais.</p>
+                <form class="px-4 py-2" action="./controller/createContact.php" method="POST" role="form">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
+                        </div>
+                    </div>
 
-            <div class="col-md-6 mt-5 text-white" id="contact">
-                <h2 class="display-3">Contact</h2>
-                <div class="form p-3">
-                    <p class="mt-5">Indiquez le nombre de convives, la date et l’heure souhaitée afin de
-                        garantir votre table dans notre restaurant</p>
-                    <form class="px-4 py-2" action="./controller/createContact.php" method="POST" role="form">
-                        <div class="row">
-                            <div class="col">
-                                <label for="nom"></label>
-                                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
-                            </div>
-                            <div class="col">
-                                <label for="prenom"></label>
-                                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
-                            </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                         </div>
-
-                        <div class="row mt-3">
-                            <div class="col">
-                                <label for="email"></label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-                            </div>
-                            <div class="col">
-                                <label for="tel"></label>
-                                <input type="tel" class="form-control" id="tel" name="tel" placeholder="N°Tel" required>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <select class="form-select mySelectArrow mt-4" name="id_categorie" id="id_categorie">
+                                <option selected>Objet</option>
+                                <option value="1">Demande d'infos</option>
+                                <option value="2">Candidature</option>
+                                <option value="3">Autres</option>
+                            </select>
                         </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <label for="objet"></label>
-                                <input type="text" class="form-control" id="objet" placeholder="Objet de votre message">
-                            </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label"></label>
+                        <textarea class="form-control" id="brt" placeholder="Message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="row mt-3 pl-4">
+                        <div class="col-12 text-right">
+                            <input type="hidden" value="0" id="statut" name="statut">
+                            <input type="submit" class="btn btndash" value="Ajouter">
                         </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label"></label>
-                            <textarea class="form-control" id="message" placeholder="Message" name="message" rows="5" required></textarea>
-                        </div>
-
-                        <div class="row mt-3">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary mr-5 fw-bold">Envoyer</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-6 mt-5">
-                <img src="./public/img/Design sans titre (1).png" alt="rue temple et sushi" class="img-fluid h-75">
+                    </div>
+                </form>
             </div>
         </div>
+        <div class="col-md-6 mt-5">
+            <img src="./public/img/Design sans titre (1).png" alt="rue temple et sushi" class="img-fluid">
+        </div>
+    </div>
 
-    </div>
-    </div>
+</div>
+</div>
 </section>
 </div>
 

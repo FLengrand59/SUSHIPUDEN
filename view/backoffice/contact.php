@@ -10,7 +10,7 @@ include "./../../controller/readController.php";
         <div class="col-lg-12">
             <div class="card shadow mb-4  bg">
                 <a href="#" class="d-block card-header py-3" role="button" aria-expanded="true">
-                    <h6 class="m-0 ic">Récapitulatif des réservations</h6>
+                    <h6 class="m-0 ic">Récapitulatif des contact</h6>
                 </a>
                 <div class="row">
                     <div class="col-12">
@@ -35,8 +35,8 @@ include "./../../controller/readController.php";
                                         <?php
                                         // on appele  la variable créer dans le controller qui va renvoyé les données
                                         foreach ($recupAllContact as $row) {
-                                            $badgeClass = ($row['etat'] === "0") ? "badge-danger" : "badge-success";
-                                            $badgeText = ($row['etat'] === "0") ? "Non lu" : "Déjà consulté";
+                                            $badgeClass = ($row['statut'] === "0") ? "badge-danger" : "badge-success";
+                                            $badgeText = ($row['statut'] === "0") ? "Non lu" : "Déjà consulté";
                                             $idContact = htmlspecialchars($row['id_contact']);
                                             $escapedNom = htmlspecialchars($row['nom']);
                                             $escapedPrenom = htmlspecialchars($row['prenom']);

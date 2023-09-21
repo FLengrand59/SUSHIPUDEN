@@ -14,6 +14,7 @@ class Management
     public static function createContact(Contact $contact)
     {
         try {
+            $db = Singleton::getInstance()->getConnection();
             $sql = 'INSERT INTO contact (nom, prenom, email, message, date, statut, id_categories) 
                     VALUES (:nom, :prenom,  :email, :message, :date, :statut, :id_categories)';
             $statement = $db->prepare($sql);
@@ -107,41 +108,40 @@ class Management
     // }
 
 
-    // // Update FONCTION //////
+    // Update FONCTION //////
 
-    // /* Edition du statut non lu > lu */
-    // public static function updateStatut($id_contact)    
-    // {
-    //     $db = Singleton::getInstance()->getConnection();
-    //     $stmt = $db->prepare("UPDATE contact SET statut=:recupStatut WHERE id_contact = :idContactRecup");
-    //     $stmt->bindValue(':idContactRecup',$id_contact);
-    //     $stmt->bindValue(':recupStatut', "1");
-    //     $stmt->execute();
-    // }
+    /* Edition du statut non lu > lu */
+    public static function updateStatut($id_contact)
+    {
+        $db = Singleton::getInstance()->getConnection();
+        $stmt = $db->prepare("UPDATE contact SET statut=:recupStatut WHERE id_contact = :idContactRecup");
+        $stmt->bindValue(':idContactRecup', $id_contact);
+        $stmt->bindValue(':recupStatut', "1");
+        $stmt->execute();
+    }
 
-    //  /* Edition du statut lu > marqué comme lu */
-    // public static function updateStatutOpnd($id_contact)    
-    // {
-    //     $db = Singleton::getInstance()->getConnection();
-    //     $stmt = $db->prepare("UPDATE contact SET statut=:recupStatut WHERE id_contact = :idContactRecup");
-    //     $stmt->bindValue(':idContactRecup',$id_contact);
-    //     $stmt->bindValue(':recupStatut', "0");
-    //     $stmt->execute();
-    // }
+    /* Edition du statut lu > marqué comme lu */
+    public static function updateStatutOpnd($id_contact)
+    {
+        $db = Singleton::getInstance()->getConnection();
+        $stmt = $db->prepare("UPDATE contact SET statut=:recupStatut WHERE id_contact = :idContactRecup");
+        $stmt->bindValue(':idContactRecup', $id_contact);
+        $stmt->bindValue(':recupStatut', "0");
+        $stmt->execute();
+    }
 
 
     // // Delete FONCTION //////
 
-    // /* Suppression d'un message (contact) */
-    // public static function deleteContact($id_contact)
-    // {
-    //     $db = Singleton::getInstance()->getConnection();
-    //     $sql = "DELETE FROM contact WHERE id_contact = :id_contactRecup";
-    //     $requete = $db->prepare($sql);
-    //     $requete->bindParam(':id_contactRecup', $id_contact, PDO::PARAM_INT);
-    //     $requete->execute();
-
-    // }
+    /* Suppression d'un message (contact) */
+    public static function deleteContact($id_contact)
+    {
+        $db = Singleton::getInstance()->getConnection();
+        $sql = "DELETE FROM contact WHERE id_contact = :id_contactRecup";
+        $requete = $db->prepare($sql);
+        $requete->bindParam(':id_contactRecup', $id_contact, PDO::PARAM_INT);
+        $requete->execute();
+    }
 
 
 

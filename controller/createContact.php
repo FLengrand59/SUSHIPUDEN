@@ -10,13 +10,13 @@ $recupPrenom = isset($_POST['prenom']) ? htmlspecialchars($_POST['prenom']) : ''
 // La fonction filter_var est utilisée pour valider l'adresse e-mail.
 $recupEmail = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : '';
 // La fonction intval est utilisée pour garantir que l'ID de catégorie est un nombre entier positif.
-$recupCategorie = isset($_POST['id_categories']) ? intval($_POST['id_categories']) : 0;
+$recupCategories = isset($_POST['id_categories']) ? intval($_POST['id_categories']) : 0;
 $recupMessage = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
 $recupDate = date('Y-m-d H:i:s');
 
-if ($recupNom && $recupPrenom && $recupEmail !== false && $recupCategorie > 0 && $recupMessage) {
+if ($recupNom && $recupPrenom && $recupEmail !== false && $recupCategories > 0 && $recupMessage) {
     // Création de l'objet Contact en utilisant les données validées
-    $newForm = new Contact($recupNom, $recupPrenom, $recupEmail, $recupMessage, $recupDate, 0, $recupCat);
+    $newForm = new Contact($recupNom, $recupPrenom, $recupEmail, $recupMessage, $recupDate, 0, $recupCategories);
 
     // Appel de la méthode de création du formulaire
     Management::createContact($newForm);
