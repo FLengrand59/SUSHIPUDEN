@@ -26,4 +26,4 @@ Management::createNewsletter($newEmail);
 // header('Location: ../index.php');
 var_dump($newEmail);
 
-//ici on va var_dump l'objet qu'on instantcie, qu'on crée !  vasy repars sur l'index et rentre un mail atdn ya une errer
+//ici on va var_dump l'objet qu'on instantcie, qu'on créer !
